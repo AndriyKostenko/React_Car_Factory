@@ -1,0 +1,15 @@
+.main__bg {
+    position: relative;
+    background: url('../../resources/img/bg/main_bg.png') no-repeat 50%/cover;
+    
+}
+
+.app__header {
+    max-height: 740px;
+    &-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 400px);
+        grid-template-rows: 50px 200px 70px 30px;
+        column-gap: 20px;
+    }
+}
