@@ -7,7 +7,7 @@ const AppMajor = () => {
             <div className="container">
                 <div className="app__major">
                     <div className="app__major-wrapper">
-                        <h1>fdfd</h1>
+                        
                     </div>
                 </div>
             </div>

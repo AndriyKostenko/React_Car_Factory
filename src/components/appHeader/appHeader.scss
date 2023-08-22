@@ -1,3 +1,7 @@
+@import '../../style/mixins.scss';
+
+
+
 .main__bg {
     position: relative;
     background: url('../../resources/img/bg/main_bg.png') no-repeat 50%/cover;
@@ -5,11 +9,61 @@
 }
 
 .app__header {
-    max-height: 740px;
+    height: 740px;
     &-wrapper {
+        padding-top: 30px;
         display: grid;
-        grid-template-columns: repeat(3, 400px);
-        grid-template-rows: 50px 200px 70px 30px;
-        column-gap: 20px;
+        grid-template-columns: 840px 440px;
+        grid-template-rows: 50px 250px 100px 100px;
+        color: var(--text-light-color);
+    }
+    &-logo {
+        grid-column: 1;
+        grid-row: 1;
+        :hover img {
+            transform: scale(1.1);
+        }
+    }
+    &-title {
+        margin-top: 94px;
+        grid-column: 1;
+        grid-row: 2/3;
+        h1 {
+            font-size: var(--fz-big);
+            font-weight: var(--fw-big);
+            line-height: 130%;
+        }
+    }
+    &-subtitle {
+        margin-top: 20px;
+        grid-column: 1;
+        grid-row: 3/4;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: var(--fw-small);
+        line-height: 130%;
+    }
+    &-button {
+        margin-top: 60px;
+        grid-column: 1;
+        grid-row: 4/5;
+        font-size: var(--font-small);
+        font-weight: var(--fw-small);
+    }
+    &-menu {
+        grid-column: 2;
+        grid-row: 1;
+        list-style-type: none;
+        li {
+            display: inline;
+            @include link-style;
+        }
+        &-item {
+            margin-right: 20px;
+            font-size: var(--fz-small);
+            font-weight: var(--fw-small);
+        }
+
     }
 }
+
