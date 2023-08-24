@@ -1,0 +1,38 @@
+.app__promo {
+        height: 700px;
+        &-wrapper {
+            padding-top: 30px;
+            display: grid;
+            grid-template-columns: 840px 440px;
+            grid-template-rows: 250px 100px 120px;
+            color: var(--text-light-color);
+        }
+
+        &-title {
+            margin-top: 94px;
+            grid-column: 1;
+            grid-row: 1/2;
+            h1 {
+                font-size: var(--fz-big);
+                font-weight: var(--fw-big);
+                line-height: 130%;
+            }
+        }
+        &-subtitle {
+            margin-top: 20px;
+            grid-column: 1;
+            grid-row: 2/3;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: var(--fw-small);
+            line-height: 130%;
+        }
+        &-button {
+            margin-top: 60px;
+            grid-column: 1;
+            grid-row: 3/4;
+            font-size: var(--font-small);
+            font-weight: var(--fw-small);
+        }
+
+}

@@ -82,6 +82,10 @@ p {
 /*=============== REUSABLE CSS CLASSES ===============*/
 
 
+.main__bg {
+  position: relative;
+  background: url('../resources/img/bg/main_bg.png') no-repeat 50%/cover;
+}
 
 .dark__bg {
   background-color: var(--bg-dark-color);
@@ -91,16 +95,33 @@ p {
   background-color: var(--bg-light-color);
 }
 
-.section__title {
-  font-size: var(--h1-font-size);
-  color: var(--title-color-dark);
+
+.section__title-dark {
+	color: var(--text-dark-color);
+	font-size: var(--fz-medium);
+	font-weight: var(--fw-big);
+	line-height: 130%;
 }
 
+.section__title-light {
+	color: var(--text-light-color);
+	font-size: var(--fz-medium);
+	font-weight: var(--fw-big);
+	line-height: 130%;
+}
 
-.section__subtitle {
-  display: block;
-  font-size: var(--small-font-size);
-  margin-bottom: 4rem;
+.section__descr-dark {
+  color:var(--text-dark-color);
+  font-size: var(--fz-small);
+  font-weight: var(--fw-small);
+  line-height: 130%;
+}
+
+.section__descr-light {
+  color:var(--text-light-color);
+  font-size: var(--fz-small);
+  font-weight: var(--fw-small);
+  line-height: 130%;
 }
 
 
@@ -124,6 +145,9 @@ p {
   &:hover {
     box-shadow: 3px 3px 20px var(--bg-dark-color);
     border: none;
+    svg {
+      fill: #BA0606;
+    }
   }
 }
 
