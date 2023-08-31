@@ -3,7 +3,7 @@ import './appPromo.scss';
 
 const AppPromo = () => {
     return (
-        <section className="app__promo">
+        <section className="app__promo main__bg dark__bg">
             <div className="container">
                 <div className="app__promo-wrapper">
 

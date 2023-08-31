@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 
-import './appTeam.scss';
 import factory_worker from '../../resources/img/workers/worker.png';
 import factory_workers from '../../resources/img/workers/workers_team.png';
+import line_1 from '../../resources/img/workers/image1.png';
+import line_2 from '../../resources/img/workers/image2.png';
+import line_3 from '../../resources/img/workers/image3.png';
+import line_4 from '../../resources/img/workers/image4.png';
+
+import './appTeam.scss';
 
 
 const AppTeam = () => {
-
-    // list with all advantages
-    const advList = ['Benefit package', 'Pension', 
-                    'Growth opportunities', 'Shift premiums', 'Service awards', 
-                     'Employee Lunches and events', 'Uniforms'];
-
-
     return (
         <section className="app__team light__bg">
             <div className="container">
@@ -38,20 +36,7 @@ const AppTeam = () => {
                     </div>
                     
                     <div className="app__team_adv-li">
-                        <ul>
-                            {advList.map((item, i) => {
-                                return (
-                                    <li key={i} className='app__team-adv-li-item'>
-                                        <svg className='icon' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="12" cy="12" r="12" fill="#1DC2FF"/>
-                                            <path d="M17.5386 6.16621C17.4271 6.09247 17.3024 6.04183 17.1717 6.0172C17.0409 5.99256 16.9067 5.99441 16.7767 6.02264C16.6467 6.05087 16.5234 6.10492 16.4139 6.18171C16.3044 6.2585 16.2108 6.35653 16.1385 6.47018L10.4659 15.3799L7.69948 12.7734C7.60188 12.6815 7.48746 12.61 7.36275 12.5631C7.23804 12.5162 7.10548 12.4948 6.97265 12.5001C6.70439 12.5108 6.45129 12.6296 6.26903 12.8305C6.08676 13.0314 5.99027 13.2978 6.00078 13.5711C6.01128 13.8445 6.12792 14.1024 6.32504 14.2881L9.95738 17.7102C9.95738 17.7102 10.0616 17.8016 10.1099 17.8336C10.2214 17.9074 10.3461 17.9581 10.4769 17.9828C10.6076 18.0074 10.7419 18.0056 10.8719 17.9774C11.002 17.9491 11.1253 17.8951 11.2349 17.8182C11.3444 17.7414 11.438 17.6434 11.5103 17.5297L17.8369 7.59288C17.9093 7.47925 17.9589 7.35221 17.9831 7.21901C18.0073 7.08581 18.0055 6.94906 17.9778 6.81657C17.9501 6.68409 17.897 6.55846 17.8217 6.44687C17.7463 6.33528 17.6501 6.23991 17.5386 6.16621Z" fill="white"/>
-                                        </svg> 
-                                        <span>{item}</span>
-                                    </li>)
-                                    }
-                                )
-                            }
-                        </ul>
+                        <AdvList/>
                     </div>
 
                     <img src={factory_workers} alt="" className="app__team_adv-workers" />
@@ -61,13 +46,66 @@ const AppTeam = () => {
                     </div>
                 </div>
 
+                <div className="app__team_break-line"></div>
+
+                <div className="app__team_line-wrapper">
+                    <h2 className="app__team_line-title section__title-dark">On the line</h2>
+                    <div className="app__team_line-info">Here's how we make RAV4 and Lexus models each and every day.</div>
+                    <LineCards/>
+                </div>
+
             </div>
         </section>
     )
 };
 
 
+const AdvList = () => {
+    // list with all advantages
+    const advList = ['Benefit package', 'Pension', 
+    'Growth opportunities', 'Shift premiums', 'Service awards', 
+        'Employee Lunches and events', 'Uniforms'];
 
+    return (
+        <ul>
+        {advList.map((item, index) => {
+            return (
+                <li key={index} className='app__team-adv-li-item'>
+                    <svg className='icon' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="12" fill="#1DC2FF"/>
+                        <path d="M17.5386 6.16621C17.4271 6.09247 17.3024 6.04183 17.1717 6.0172C17.0409 5.99256 16.9067 5.99441 16.7767 6.02264C16.6467 6.05087 16.5234 6.10492 16.4139 6.18171C16.3044 6.2585 16.2108 6.35653 16.1385 6.47018L10.4659 15.3799L7.69948 12.7734C7.60188 12.6815 7.48746 12.61 7.36275 12.5631C7.23804 12.5162 7.10548 12.4948 6.97265 12.5001C6.70439 12.5108 6.45129 12.6296 6.26903 12.8305C6.08676 13.0314 5.99027 13.2978 6.00078 13.5711C6.01128 13.8445 6.12792 14.1024 6.32504 14.2881L9.95738 17.7102C9.95738 17.7102 10.0616 17.8016 10.1099 17.8336C10.2214 17.9074 10.3461 17.9581 10.4769 17.9828C10.6076 18.0074 10.7419 18.0056 10.8719 17.9774C11.002 17.9491 11.1253 17.8951 11.2349 17.8182C11.3444 17.7414 11.438 17.6434 11.5103 17.5297L17.8369 7.59288C17.9093 7.47925 17.9589 7.35221 17.9831 7.21901C18.0073 7.08581 18.0055 6.94906 17.9778 6.81657C17.9501 6.68409 17.897 6.55846 17.8217 6.44687C17.7463 6.33528 17.6501 6.23991 17.5386 6.16621Z" fill="white"/>
+                    </svg> 
+                    <span>{item}</span>
+                </li>)
+                }
+            )
+        }
+    </ul>
+    )
+}
+
+
+const LineCards = () => {
+    const data = [{img: line_1, title:'Stamping', descr:'Our stamping lines form steel parts with stamping dies under high pressure. Once each piece passes inspection, it moves on to welding.'},
+                  {img: line_2, title:'Welding', descr:'We use robotics welders to join sub-assemblies, made up of multiple types of materials.'},
+                  {img: line_3, title:'Production Control', descr:'We ensure that our automotive parts are assembled with a high degree of quality. .'},
+                  {img: line_4, title:'Ready to go', descr:'Then we ready to supply Automotive Parts to Toyota Manufacturing Facilities located in Norfolk County.'}
+                ];
+    return (
+        <div className="cards">
+            {data.map((item) => {
+                return (
+                    <div className="card">
+                        <img src= {item['img']} alt="" />
+                        <h4 className='card__title'>{item['title']}</h4>
+                        <p className='card__descr'>{item['descr']}</p>
+                    </div>
+                )
+            })}
+        </div>
+
+    )
+}
 
 
 const CardCarousel = () => {

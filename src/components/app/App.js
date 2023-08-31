@@ -1,5 +1,6 @@
 import AppHeader from "../appHeader/AppHeader";
 import AppMajor from "../appMajor/AppMajor";
+import AppProduce from "../appProduce/AppProduce";
 import AppPromo from "../appPromo/AppPromo";
 import AppTeam from "../appTeam/AppTeam";
 
@@ -8,12 +9,11 @@ import AppTeam from "../appTeam/AppTeam";
 function App() {
   return (
     <div>
-      <div className="main__bg dark__bg">
-        <AppHeader/>
-        <AppPromo/>
-      </div>
+      <AppHeader/>
+      <AppPromo/>
       <AppMajor/>
       <AppTeam/>
+      <AppProduce/>
     </div>
   );
 }

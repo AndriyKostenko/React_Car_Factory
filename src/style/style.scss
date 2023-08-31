@@ -5,10 +5,18 @@
 
 /*=============== FONTS ===============*/
 @font-face {
-  font-family: 'Craft Rounded';
+  font-family: 'Craft Rounded Regular';
   src: url(../fonts/CraftRounded-Regular.woff) format('woff'),
-      url(../fonts/CraftRounded-Regular.woff2) format('woff2');
+       url(../fonts/CraftRounded-Regular.woff2) format('woff2');
 
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Craft Rounded Bold';
+  src: url(../fonts/CraftRounded-DemiBold.woff) format('woff'),
+      url(../fonts/CraftRounded-DemiBold.woff2) format('woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -23,7 +31,7 @@
 }
 
 body {
-  font-family: 'Craft Rounded';
+  font-family: 'Craft Rounded Regular';
 }
 
 html {
@@ -38,6 +46,7 @@ h4,
 h5,
 h6 {
     margin: 0;
+    font-family: 'Craft Rounded Bold';
 }
 
 
@@ -97,6 +106,7 @@ p {
 
 
 .section__title-dark {
+  font-family: 'Craft Rounded Bold';
 	color: var(--text-dark-color);
 	font-size: var(--fz-medium);
 	font-weight: var(--fw-big);
@@ -104,6 +114,7 @@ p {
 }
 
 .section__title-light {
+  font-family: 'Craft Rounded Bold';
 	color: var(--text-light-color);
 	font-size: var(--fz-medium);
 	font-weight: var(--fw-big);
