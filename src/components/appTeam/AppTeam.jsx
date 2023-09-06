@@ -93,9 +93,9 @@ const LineCards = () => {
                 ];
     return (
         <div className="cards">
-            {data.map((item) => {
+            {data.map((item, index) => {
                 return (
-                    <div className="card">
+                    <div className="card" key={index}>
                         <img src= {item['img']} alt="" />
                         <h4 className='card__title'>{item['title']}</h4>
                         <p className='card__descr'>{item['descr']}</p>
