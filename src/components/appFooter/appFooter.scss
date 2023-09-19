@@ -1,0 +1,11 @@
+.app__join {
+    height: 820px;
+    &-wrapper {
+        position: relative;
+        padding-top: 120px;
+        display: grid;
+        grid-template-columns: 500px 600px;
+        grid-template-rows: 55px 280px;
+        column-gap: 132px;
+    }
+}
