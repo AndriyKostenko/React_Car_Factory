@@ -18,7 +18,6 @@ const AppNews = () => {
 					<h2 className='app__news-title section__title-dark'>Latest news</h2>
 					<div className="app__news-carousel">
 						<Cards/>
-
 					</div>
 				</div>
             </div>
@@ -36,7 +35,6 @@ const Cards = () => {
 
 
 	const handleButtonClick = (item) => {
-		console.log('pressed')
 		setClickedCard(item);
 		setIsModalOpen(true);
 	};
@@ -108,9 +106,9 @@ const Cards = () => {
 			</Carousel>
 			
 			<Modal isOpen={isModalOpen} onClose={closeModal}>
-				<h4 className='app__news-card__title'>{clickedCard ? ( clickedCard['title']) : (<div></div>)}</h4>
-				<div className='app__news-card__descr'>{clickedCard ? (clickedCard['descr']) : (<div></div>)}</div>
-				<div className="app__news-card__date">{clickedCard ? (clickedCard['date']) : (<div></div>)}</div>					
+				<h4 className='app__news-card__title modal-title'>{clickedCard ? ( clickedCard['title']) : (<div></div>)}</h4>
+				<div className='app__news-card__descr modal-descr'>{clickedCard ? (clickedCard['descr']) : (<div></div>)}</div>
+				<div className="app__news-card__date modal-date">{clickedCard ? (clickedCard['date']) : (<div></div>)}</div>					
 			</Modal>
 		</div>
 
@@ -162,9 +160,7 @@ const Modal = ({ isOpen, onClose, children }) => {
 	return (
 	  <div className={showHideClassName}>
 		<div className="modal-content">
-		  <span className="close-button" onClick={onClose}>
-			&times;
-		  </span>
+		  <button className="close-button" onClick={onClose}>x</button>
 		  {children}
 		</div>
 	  </div>

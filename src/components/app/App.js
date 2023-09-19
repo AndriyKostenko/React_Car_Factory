@@ -1,4 +1,5 @@
 import AppHeader from "../appHeader/AppHeader";
+import AppJoin from "../appJoin/AppJoin";
 import AppMajor from "../appMajor/AppMajor";
 import AppNews from "../appNews/AppNews";
 import AppProduce from "../appProduce/AppProduce";
@@ -16,6 +17,7 @@ function App() {
       <AppTeam/>
       <AppProduce/>
       <AppNews/>
+      <AppJoin/>
     </div>
   );
 }

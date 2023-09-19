@@ -1,0 +1,178 @@
+.app__join {
+    height: 820px;
+    &-wrapper {
+        position: relative;
+        padding-top: 120px;
+        display: grid;
+        grid-template-columns: 500px 600px;
+        grid-template-rows: 55px 280px;
+        column-gap: 132px;
+    }
+    &-workers {
+        position: absolute;
+        top: -45%;
+        grid-column: 1/2;
+        grid-row: 1/7;
+    }
+    &-title {
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+    &-form {
+        padding-top: 30px;
+        grid-column: 2/3;
+        grid-row: 2/3;
+        display: grid;
+        grid-template-columns: repeat(2, 300px);
+        grid-template-rows: 32px 32px 32px 52px 90px 55px;
+        column-gap:20px;
+        row-gap: 50px;
+        &-input-first {
+            grid-column: 1/2;
+            grid-row: 1/2;
+            input:invalid[focused="true"] ~ .app__join-error_msg {
+                display: block;
+            }
+        }
+        &-input-last {
+            grid-column: 2/3;
+            grid-row: 1/2;
+            input:invalid[focused="true"] ~ .app__join-error_msg {
+                display: block;
+            }
+        }
+        &-input-email {
+            grid-column: 1/2;
+            grid-row: 2/3;
+            input:invalid[focused="true"] ~ .app__join-error_msg {
+                display: block;
+            }
+        }
+        &-input-phone {
+            grid-column: 2/3;
+            grid-row: 2/3;
+            input:invalid[focused="true"] ~ .app__join-error_msg {
+                display: block;
+            }
+        }
+
+        &-input-message {
+            grid-column: 1/3;
+            grid-row: 4/5;
+            resize: none;
+            width: 100%;
+            overflow-y: auto;
+            &-label{
+                font-size: 17px;
+                font-weight: 400;
+                color: rgba(242, 246, 248, 0.5);
+            }
+        }
+        &-resume {
+            &-hide{
+                display: none;
+            }
+            &-show {
+                grid-column: 1/2;
+                grid-row: 5/6;
+                cursor: pointer;
+                &-error {
+                    margin-top: 5px;
+                    color: #BA0606;
+                }
+            }
+            &-icon {
+                cursor: pointer;
+            }
+            &-text {
+                margin-left: 10px;
+                color:  #1DC2FF;
+                font-size: 17px;
+                font-style: normal;
+                font-weight: 400;
+                text-decoration-line: underline; 
+            }
+            &-error {
+                color: #BA0606;
+            }
+        }
+        &-input-terms {
+            grid-column: 2/3;
+            grid-row: 5/6;
+            display: flex;
+            
+            &-rule {
+                margin-left: 10px;
+                font-size: 17px;
+                font-weight: 400;
+                color: rgba(242, 246, 248, 0.5);
+                cursor: pointer;
+            }
+            &-error {
+                grid-column: 2/3;
+                grid-row: 6/7;
+                color: #BA0606;
+            }
+             
+        }
+        &-button {
+            grid-column: 1/2;
+            grid-row: 6/7;
+        }
+    }
+
+    &-error_msg {
+        display: none;
+        color: #BA0606;
+
+    }
+
+}
+
+/*=============== INPUT ===============*/
+.input {
+    padding-bottom: 10px;
+    border: none;
+    border-bottom: 2px solid rgba(196, 195, 195, 0.50);
+    background: none;
+    outline: none;
+    font-size: 17px;
+    font-weight: 400;
+    color:  rgba(242, 246, 248, 0.80);
+
+}
+
+
+
+/*=============== CUSTOM CHECKBOX ===============*/
+/* Hide the default checkbox */
+.custom-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+/* Create a custom checkbox appearance */
+.custom-checkbox .checkmark {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    background-color: var(--bg-dark-color);
+    border: 2px solid white;
+    display: inline-block;
+}
+
+/* Indicate when the checkbox is checked using a white "check" symbol */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark::after {
+    content: '\2713';  /* Unicode check symbol */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 16px;
+}
+
+/* Optionally, add a hover effect */
+.custom-checkbox:hover .checkmark {
+    background-color: var(--bg-dark-color);
+}
+
