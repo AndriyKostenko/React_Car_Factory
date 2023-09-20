@@ -5,6 +5,7 @@ import AppNews from "../appNews/AppNews";
 import AppProduce from "../appProduce/AppProduce";
 import AppPromo from "../appPromo/AppPromo";
 import AppTeam from "../appTeam/AppTeam";
+import AppFooter from "../appFooter/AppFooter";
 
 
 
@@ -18,6 +19,7 @@ function App() {
       <AppProduce/>
       <AppNews/>
       <AppJoin/>
+      <AppFooter/>
     </div>
   );
 }

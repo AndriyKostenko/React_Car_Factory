@@ -13,15 +13,15 @@ const AppHeader = () => {
                     <div className="app__header-wrapper">
 
                         <div className="app__header-logo">
-                            <a href="/"><img src={logo} alt="ttca_logo"/></a>
+                            <a href="#company"><img src={logo} alt="ttca_logo"/></a>
                         </div>
 
                         <ul className="app__header-menu">
                             
-                            <li className="app__header-menu-item"><a href="/" className="app__header-menu-link">Company</a></li>
-                            <li className="app__header-menu-item"><a href="/" className="app__header-menu-link">Careers</a></li>
-                            <li className="app__header-menu-item"><a href="/" className="app__header-menu-link">News</a></li>
-                            <li className="app__header-menu-item"><a href="/" className="app__header-menu-link">Contacts</a></li>
+                            <li className="app__header-menu-item"><a href="#company" className="app__header-menu-link">Company</a></li>
+                            <li className="app__header-menu-item"><a href="#careers" className="app__header-menu-link">Careers</a></li>
+                            <li className="app__header-menu-item"><a href="#news" className="app__header-menu-link">News</a></li>
+                            <li className="app__header-menu-item"><a href="#contacts" className="app__header-menu-link">Contacts</a></li>
 
                         </ul>
                     </div>

@@ -12,7 +12,7 @@ import './appNews.scss';
 const AppNews = () => {
 
     return (
-        <section className="app__news light__bg">
+        <section className="app__news light__bg" id="news">
             <div className="container">
 				<div className="app__news-wrapper">
 					<h2 className='app__news-title section__title-dark'>Latest news</h2>

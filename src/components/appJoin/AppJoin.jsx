@@ -118,6 +118,7 @@ const AppJoin = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        
         setValues({buttonText:'Sending...'});
 
         if (!values.uploadResume || !values.isChecked) {
@@ -126,7 +127,6 @@ const AppJoin = () => {
         }
 
         
-
 
         emailjs.sendForm('service_w2i0wjs', 'template_s65z8tw', form.current, '8sbKbHp2-XUMRl7lP')
         .then((result) => {
@@ -153,7 +153,7 @@ const AppJoin = () => {
 
 
     return (
-        <section className="app__join dark__bg">
+        <section className="app__join dark__bg" id='join'>
             <div className="container">
                 <div className="app__join-wrapper">
                     <div className="app__join-workers">
@@ -290,8 +290,6 @@ const AppJoin = () => {
 
                        
 
-                       
-
                         <div className="app__join-form-input-terms">
                             <label className='custom-checkbox'>
                                 <input type="checkbox" 
@@ -325,6 +323,8 @@ const AppJoin = () => {
                     </form>
                 </div>
             </div>
+            
+            <div className="app__join-white-border"></div>
         </section>
     )
     

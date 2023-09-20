@@ -3,7 +3,7 @@ import './appPromo.scss';
 
 const AppPromo = () => {
     return (
-        <section className="app__promo main__bg dark__bg">
+        <section className="app__promo main__bg dark__bg" id='company'>
             <div className="container">
                 <div className="app__promo-wrapper">
 
@@ -15,7 +15,7 @@ const AppPromo = () => {
                         <p>We produce automotive <br></br>parts for RAV4 & Lexus</p>
                     </div>
 
-                    <button className='app__promo-button btn'>We are hiring</button>
+                    <a href='#join' className='app__promo-button btn'>We are hiring</a>
 
                 </div>
             </div>

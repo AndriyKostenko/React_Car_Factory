@@ -1,11 +1,59 @@
-.app__join {
-    height: 820px;
+@import '../../style/mixins.scss';
+
+.app__footer {
+    height: 364px;
     &-wrapper {
-        position: relative;
-        padding-top: 120px;
+        padding-top: 130px;
         display: grid;
-        grid-template-columns: 500px 600px;
-        grid-template-rows: 55px 280px;
-        column-gap: 132px;
+        grid-template-columns: repeat(4, 300px);
+        grid-template-rows: 106px;
+        column-gap: 20px;
+        color: #FFF;
+        font-size: 17px;
+        font-weight: 400;
     }
+    &-socials {
+        display: flex;
+        justify-content: center;
+  
+        align-items: center;
+        gap: 20px;
+        img {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            cursor: pointer; 
+        }
+        @include rotate_social;
+    }
+    &-contact {
+        display: grid;
+        grid-template-columns: 0.4fr 0.6fr;
+        grid-template-rows: repeat(3, 1fr);
+        &-title {
+            font-weight: 600;
+            grid-column: 1/3;
+        }
+    }
+    &-hours {
+        display: grid;
+        grid-template-columns: 0.4fr 0.6fr;
+        grid-template-rows: repeat(3, 1fr);
+        &-title {
+            font-weight: 600;
+            grid-column: 1/3;
+        }
+    }
+    &-location {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        flex-shrink: 0; 
+        &-title {
+            font-weight: 600;
+            grid-column: 1/3;
+        }
+    }
+
 }

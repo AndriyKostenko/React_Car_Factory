@@ -12,7 +12,7 @@ import './appTeam.scss';
 
 const AppTeam = () => {
     return (
-        <section className="app__team light__bg">
+        <section className="app__team light__bg" id='careers'>
             <div className="container">
                 <div className="app__team_manuf-wrapper">
                     <div className="app__team_manuf-title section__title-dark">
