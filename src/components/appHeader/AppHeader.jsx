@@ -12,9 +12,9 @@ const AppHeader = () => {
             <header className="app__header">
                     <div className="app__header-wrapper">
 
-                        <div className="app__header-logo">
+                        {/* <div className="app__header-logo">
                             <a href="#company"><img src={logo} alt="ttca_logo"/></a>
-                        </div>
+                        </div> */}
 
                         <ul className="app__header-menu">
                             

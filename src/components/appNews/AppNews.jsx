@@ -48,15 +48,15 @@ const Cards = () => {
 						date: '28 April 2023'},
 
 						{title:'Annual Spirit of Norfolk Awards', 
-						descr:'The 5th Annual Spirit of Norfolk Awards is now open for voting. Our community is filled with amazing people and businesses. TTCA is honored to be nominated for Best Local Employer.',
+						descr:'The 5th Annual Spirit of Norfolk Awards is now open for voting. Our community is filled with amazing people and businesses.  honored to be nominated for Best Local Employer.',
 						date: '20 April 2023'},
 
 						{title:'Support local bussiness', 
-						descr:'Today TTCA and Charles Jones presented Elgin Avenue Public School with a cheque for $4,570.00 for their Children’s Nutrition Network Program which provides 3 healthy snacks per day to all students from kindergarten to grade 8.',
+						descr:'Today  Charles Jones presented Elgin Avenue Public School with a cheque for $4,570.00 for their Children’s Nutrition Network Program which provides 3 healthy snacks per day to all students from kindergarten to grade 8.',
 						date: '17 April 2023'},
 
 						{title:'Walk-in job fairs', 
-						descr:'Walk-in Wednesday is here again.  Come and meet HR staff, bring your resume, and have a plant tour.  This opportunity could be the beginning of your career at TTCA. Hope to see you there.  Today 4 pm till 6 pm.',
+						descr:'Walk-in Wednesday is here again.  Come and meet HR staff, bring your resume, and have a plant tour.  This opportunity could be the beginning of your career Hope to see you there.  Today 4 pm till 6 pm.',
 						date:'10 April 2023'}
 					];
 

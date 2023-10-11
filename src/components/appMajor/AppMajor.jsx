@@ -1,5 +1,5 @@
 import './appMajor.scss';
-import factory_photo from '../../resources/img/factory/outside_factory.png';
+import factory_photo from '../../resources/img/factory/istockphoto-181092362-612x612.jpg';
 
 
 const AppMajor = () => {
@@ -12,7 +12,7 @@ const AppMajor = () => {
                     </div>
                     <img src={factory_photo} alt="outside_factory_photo" className="app__major-factory" />
                     <p className="app__major-descr section__descr-light">
-                        Toyotetsu Canada was founded in 2006, in Simcoe, Ontario. <br></br> We produce high quality automotive parts to Toyota Manufacturing <br></br> Facilities located in the heart of Norfolk County.
+                        Brevetsu Canada was founded in 2020, in Ontario. <br></br> We produce high quality automotive parts. <br></br> Facilities located in the heart of Norfolk County.
                         <br></br>
                         <br></br>
                         We utilize state of the art technology to ensure our automotive <br></br> parts are assembled with a high degree of quality.

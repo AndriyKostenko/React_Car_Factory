@@ -16,6 +16,7 @@ const AppJoin = () => {
         lastName:'',
         email: '',
         phoneNumber: '',
+        message: '',
         uploadResume: '',
         modalIsOpen: false,
         isChecked: false,
@@ -209,7 +210,8 @@ const AppJoin = () => {
                                     placeholder='First name *'
                                     onChange={handleChange}
                                     onBlur={handleFocus}
-                                    focused={focused.toString()}/>
+                                    focused={focused.toString()}
+                                    value={formData.firstName}/>
 
                             {errors.firstName && <div className='app__join-error_msg'>{errors.firstName}</div> }
                             
@@ -224,7 +226,8 @@ const AppJoin = () => {
                                     placeholder='Last name *'
                                     onChange={handleChange}
                                     onBlur={handleFocus}
-                                    focused={focused.toString()}/>
+                                    focused={focused.toString()}
+                                    value={formData.lastName}/>
 
                             {errors.lastName && <div className='app__join-error_msg'>{errors.lastName}</div> }
                         </div>
@@ -238,7 +241,8 @@ const AppJoin = () => {
                                     placeholder="Email *"
                                     onChange={handleChange} 
                                     onBlur={handleFocus}
-                                    focused={focused.toString()}/>
+                                    focused={focused.toString()}
+                                    value={formData.email}/>
                                 {errors.email && <div className='app__join-error_msg'>{errors.email}</div> }
                            
                         </div>
@@ -254,7 +258,7 @@ const AppJoin = () => {
                                     onKeyDown={handleKeyDown}
                                     onBlur={handleFocus}
                                     focused={focused.toString()}
-                                    />
+                                    value={formData.phoneNumber}/>
 
                             {errors.phoneNumber && <div className='app__join-error_msg'>{errors.phoneNumber}</div> }
 
@@ -273,7 +277,8 @@ const AppJoin = () => {
                                     onChange={handleChange}
                                     onBlur={handleFocus}
                                     focused={focused.toString()}
-                                    spellCheck="false">      
+                                    spellCheck="false"
+                                    value={formData.message}>      
                             </textarea>
                         </div>
 
@@ -287,6 +292,7 @@ const AppJoin = () => {
                                     onChange={handleFileChange} 
                                     className='app__join-form-resume-hide'
                                     onBlur={handleFocus}
+                                    
                                 />
                             <label htmlFor="uploadResume" 
                                     className="app__join-form-resume-show"
@@ -318,7 +324,8 @@ const AppJoin = () => {
                                             onClick={() => setFormData({...formData, modalIsOpen: true})} 
                                             required
                                             onBlur={handleFocus}
-                                            focused={focused.toString()}/>
+                                            focused={focused.toString()}
+                                            value={formData.isChecked}/>
                                 <span className='checkmark'></span>
                             </label>
 

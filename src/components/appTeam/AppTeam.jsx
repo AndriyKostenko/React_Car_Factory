@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import factory_worker from '../../resources/img/workers/worker.png';
-import factory_workers from '../../resources/img/workers/workers_team.png';
+import factory_workers from '../../resources/img/workers/workers__teamm.png';
 import line_1 from '../../resources/img/workers/image1.png';
 import line_2 from '../../resources/img/workers/image2.png';
 import line_3 from '../../resources/img/workers/image3.png';
@@ -19,7 +19,7 @@ const AppTeam = () => {
                         Interested to join our world class manufacturing team?
                     </div>
                     <div className="app__team_manuf-descr section__descr-dark ">
-                        TTCA is actively recruiting Production Team Members.
+                        Actively recruiting Production Team Members.
                         <br></br>
                         <br></br>
                         We have immediate openings as Material Handlers, Robotic Welding Cell Operators and Stamping Press  Off-Loaders.
@@ -50,7 +50,7 @@ const AppTeam = () => {
 
                 <div className="app__team_line-wrapper">
                     <h2 className="app__team_line-title section__title-dark">On the line</h2>
-                    <div className="app__team_line-info">Here's how we make RAV4 and Lexus models each and every day.</div>
+                    <div className="app__team_line-info">Here's how we make CAR1 and CAR2 models each and every day.</div>
                     <LineCards/>
                 </div>
 
@@ -113,7 +113,7 @@ const CardCarousel = () => {
     const cardData = [
         {   name: 'Clark Tardif ',
             position: 'General Labour',
-            content: 'I moved to Simcoe a few days before starting my employment at TTCA & I can say this iseasily one of my favourite jobs I’ve had. You can tell this is a place that genuinely cares about their workers & makes sure to show it.', 
+            content: 'I moved to Ontario a few days before starting my employment at BREVETSU & I can say this iseasily one of my favourite jobs I’ve had. You can tell this is a place that genuinely cares about their workers & makes sure to show it.', 
             
         },
         {   name:'Andrew Kostenko',
