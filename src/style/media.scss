@@ -1,5 +1,17 @@
 /*=============== BREAKPOINTS ===============*/
 
+
+/* For extra-large devices */
+@media screen and (max-width: 1440px) {
+    .app__header {
+        &-wrapper {
+            display: grid;
+            grid-template-columns: 740px 540px;
+            grid-template-rows: 1fr;
+        }
+    }
+}
+
 /* For large devices */
 @media screen and (max-width: 992px) {
 }

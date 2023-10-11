@@ -11,66 +11,111 @@ import workers from '../../resources/img/workers/image_workers.png';
 const AppJoin = () => {
 
     //setting input values
-    const [values, setValues] =  useState({
+    const [formData, setFormData] =  useState({
         firstName: '',
         lastName:'',
         email: '',
         phoneNumber: '',
-        uploadResume:'',
-        uploadCover: '',
+        uploadResume: '',
         modalIsOpen: false,
         isChecked: false,
         buttonText: "Send Message"
     });
 
-    const [errorMessage, setErrorMessage] = useState({
-        firstName: 'First name should be more than 2 characters',
-        lastName: 'Last name should be more than 2 characters',
-        email: 'Email is not valid',
-        phoneNumber: 'Phone number is empty or incorrect',
-        uploadResume:false,
-        isCheckedError: false,
-        uploadCover: 'The file is incorrect format.', 
-    });
+    const [errors, setErrors] = useState({});
 
     const [focused, setFocused] = useState(false);
 
+    const form = useRef();
+
+
+    const handleChange = (event) => {
+        const {name, value, type} = event.target;
+
+        if (type === 'checkbox') {
+            setFormData({
+                ...formData,
+                [name]: event.target.checked,
+            });
+
+        } else {
+            setFormData({
+                ...formData,
+                [name]: value,
+            });
+        }
+        
+    };
+
+    const validate = () => {
+        const newErrors = {};
+
+        if (!formData.firstName)
+            newErrors.firstName = 'Name is required';
+        if (!formData.lastName)
+            newErrors.lastName = 'Surname is required';
+        if (!formData.email)
+            newErrors.email = 'Email is required';
+        if (!/^\d{10}$/.test(formData.phoneNumber))
+            newErrors.phoneNumber = 'Phone number should be a 10-digit number';
+        if (!formData.uploadResume)
+            newErrors.uploadResume = 'File is required';
+        if (!formData.isChecked)
+            newErrors.isChecked = 'You must to accept terms and conditions.';
+
+        setErrors(newErrors);
+
+        return Object.keys(newErrors).length === 0;
+    }
+
 
     const handleAgree = () => {
-        setValues({...values, isChecked: true, modalIsOpen:false});
-        setErrorMessage({...errorMessage, isCheckedError:false});
-        // console.log(errorMessage.isCheckedError)
+        setFormData({...formData, isChecked: true, modalIsOpen: false});
+        setErrors({...errors, isChecked: true});
       };
     
     const handleDisagree = () => {
-        setValues({...values, isChecked:false, modalIsOpen:false});
-        setErrorMessage({...errorMessage, isCheckedError:true});
-        // console.log(errorMessage.isCheckedError)
+        setFormData({...formData, isChecked: false, modalIsOpen:false});
+        setErrors({...errors, isChecked: false});
+        
     };
 
 
 
+    // ------- working with file input -----
     const handleFileChange = (event) => {
+
         const file = event.target.files[0];
+    
 
         if (file) {
             // Check if the selected file type is allowed (PDF or Word)
             if (isFileTypeAllowed(file)) {
-                setErrorMessage({...errorMessage, uploadResume: ''});
-                setValues({...values, [event.target.name]: file});
+                setFormData({...formData, uploadResume: file});
              
             } else {
-                setErrorMessage({...errorMessage, uploadResume:'The file is bigger 500 KB.'});
+                setErrors({...errors, uploadResume:'The file is bigger 50 KB.'});
                       
             }
             
         }
     };
 
-    const handleInputChange = (event) => {
+    const isFileTypeAllowed = (file) => {
+        const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+        const maxSize = 50 * 1024; // 50 kb 
+
+        return (allowedTypes.includes(file.type) && file.size <= maxSize);
+    };
+    // -----------------------------------
+
+
+
+    // ------- working with phone input input -----
+
+    const handlePhoneChange = (event) => {
         let { value } = event.target;
        
-    
         // Retain only numbers from the input
         let cleaned = ('' + value).replace(/\D/g, '');
     
@@ -84,7 +129,7 @@ const AppJoin = () => {
           cleaned = '(' + match[1] + ')' + match[2] + (match[3] ? '-' + match[3] : '');
         }
     
-        setValues({...values, [event.target.name]: cleaned});
+        setFormData({...formData, [event.target.name]: cleaned});
         
     };
     
@@ -97,20 +142,12 @@ const AppJoin = () => {
             (keyCode < 96 || keyCode > 105)) { // Numpad numbers
           event.preventDefault();
         }
-      };
-    
-
-    const isFileTypeAllowed = (file) => {
-        const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-        const maxSize = 500 * 1024; // 500 kb 
-
-        return (allowedTypes.includes(file.type) && file.size <= maxSize);
     };
-
-    const form = useRef();
+    // ------- ------------------------------ -----
     
 
-
+      
+    // setting focus to clear data after sending info
     const handleFocus = () => {
         setFocused(true);
     }
@@ -119,36 +156,31 @@ const AppJoin = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         
-        setValues({buttonText:'Sending...'});
+        
+        if (validate()) {
 
-        if (!values.uploadResume || !values.isChecked) {
-            setErrorMessage({...errorMessage, uploadResume:'Please Upload CV'});
-            return;
+            setFormData({buttonText:'Sending...'});
+
+            emailjs.sendForm('service_w2i0wjs', 'template_s65z8tw', form.current, '8sbKbHp2-XUMRl7lP')
+            .then((result) => {
+                    setFormData({buttonText:'Sent!'});
+                    setFocused(false);
+                    event.target.reset();
+                    setTimeout(() => setFormData({buttonText:'Send Message'}), 3000)
+                }, (error) => {
+                    setFormData({buttonText: 'Oops...something went wrong. Please contact me in another way. '})
+                    setFocused(false);
+                    event.target.reset();
+                    setTimeout(() => setFormData({buttonText:'Send Message'}), 3000);
+                });
+            
+            console.log('Data is valid:', formData)
+        } else {
+            console.log('Errors:', errors);
         }
 
-        
-
-        emailjs.sendForm('service_w2i0wjs', 'template_s65z8tw', form.current, '8sbKbHp2-XUMRl7lP')
-        .then((result) => {
-                setValues({buttonText:'Sent!'});
-                setFocused(false);
-                event.target.reset();
-                setTimeout(() => setValues({buttonText:'Send Message'}), 5000)
-            }, (error) => {
-                setValues({buttonText: 'Oops...something went wrong. Please contact me in another way. '})
-                setFocused(false);
-                event.target.reset();
-                setTimeout(() => setValues({buttonText:'Send Message'}), 5000);
-            });
 
     }
-
-    const onChange = (event) => {
-        setValues({...values, [event.target.name]: event.target.value});
-    }
-
-
-
 
 
 
@@ -175,14 +207,12 @@ const AppJoin = () => {
                                     id='firstName'
                                     className='input'
                                     placeholder='First name *'
-                                    onChange={onChange}
-                                    required
-                                    pattern='^((?:\p{Ll}|\p{Lu}){1,30}\s?){2,4}$'
+                                    onChange={handleChange}
                                     onBlur={handleFocus}
                                     focused={focused.toString()}/>
-                            <div className="app__join-error_msg">
-                                <span>{errorMessage.firstName}</span>
-                            </div>
+
+                            {errors.firstName && <div className='app__join-error_msg'>{errors.firstName}</div> }
+                            
                         </div>
   
 
@@ -192,14 +222,11 @@ const AppJoin = () => {
                                     id='lastName' 
                                     className='input'
                                     placeholder='Last name *'
-                                    onChange={onChange}
-                                    required
-                                    pattern='^((?:\p{Ll}|\p{Lu}){1,30}\s?){2,4}$'
+                                    onChange={handleChange}
                                     onBlur={handleFocus}
                                     focused={focused.toString()}/>
-                            <div className="app__join-error_msg">
-                                <span>{errorMessage.lastName}</span>
-                            </div>
+
+                            {errors.lastName && <div className='app__join-error_msg'>{errors.lastName}</div> }
                         </div>
 
 
@@ -209,14 +236,11 @@ const AppJoin = () => {
                                     id='email'
                                     className="input" 
                                     placeholder="Email *"
-                                    onChange={onChange} 
-                                    required
-                                    pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,14})$"
+                                    onChange={handleChange} 
                                     onBlur={handleFocus}
                                     focused={focused.toString()}/>
-                            <div className='app__join-error_msg'>
-                                <span>{errorMessage.email}</span>
-                            </div>
+                                {errors.email && <div className='app__join-error_msg'>{errors.email}</div> }
+                           
                         </div>
 
 
@@ -226,18 +250,15 @@ const AppJoin = () => {
                                     id='phoneNumber'
                                     className="input" 
                                     placeholder="Phone Number *"
-                                    onChange={handleInputChange}
+                                    onChange={handleChange}
                                     onKeyDown={handleKeyDown}
-                                    // pattern="\(\d{3}\)\d{3}-\d{4}"
-                                    required
                                     onBlur={handleFocus}
                                     focused={focused.toString()}
-                                    // value={values.phoneNumber}
                                     />
 
-                            <div className='app__join-error_msg'>
-                                {<span>{errorMessage.phoneNumber}</span>}
-                            </div>
+                            {errors.phoneNumber && <div className='app__join-error_msg'>{errors.phoneNumber}</div> }
+
+                            
                         </div>
 
                        
@@ -249,7 +270,7 @@ const AppJoin = () => {
                                     cols="30" 
                                     rows="5" 
                                     className="input"
-                                    onChange={onChange}
+                                    onChange={handleChange}
                                     onBlur={handleFocus}
                                     focused={focused.toString()}
                                     spellCheck="false">      
@@ -264,7 +285,6 @@ const AppJoin = () => {
                                     id='uploadResume' 
                                     accept=".pdf,.docx,.doc" 
                                     onChange={handleFileChange} 
-                                    required={true}
                                     className='app__join-form-resume-hide'
                                     onBlur={handleFocus}
                                 />
@@ -277,14 +297,14 @@ const AppJoin = () => {
                                     </svg>
                                 </span>
 
-                                {values.uploadResume ? (
-                                    <span className='app__join-form-resume-text'>{values.uploadResume.name}</span>
+                                {formData.uploadResume ? (
+                                    <span className='app__join-form-resume-text'>{formData.uploadResume.name}</span>
                                     ) : (
                                     <span className="app__join-form-resume-text">Upload a Resume</span>
                                     )
                                 }
 
-                                {errorMessage.uploadResume && <div className='app__join-form-resume-error'>{errorMessage.uploadResume}</div>}
+                                {errors.uploadResume && <div className='app__join-form-resume-error'>{errors.uploadResume}</div>}
                             </label>
                         </div>
 
@@ -293,31 +313,34 @@ const AppJoin = () => {
                         <div className="app__join-form-input-terms">
                             <label className='custom-checkbox'>
                                 <input type="checkbox" 
-                                            checked={values.isChecked} 
+                                            checked={formData.isChecked} 
                                             readOnly 
-                                            onClick={() => setValues({...values, modalIsOpen:true})} 
+                                            onClick={() => setFormData({...formData, modalIsOpen: true})} 
                                             required
                                             onBlur={handleFocus}
                                             focused={focused.toString()}/>
                                 <span className='checkmark'></span>
                             </label>
 
-                                <div className='app__join-form-input-terms-rule' onClick={(e) => {e.preventDefault(); setValues({...values, modalIsOpen:true}) ;}}>I agree to the terms of use and privacy policy.</div>
+                                <div className='app__join-form-input-terms-rule' 
+                                     onClick={(e) => {e.preventDefault(); setFormData({...formData, modalIsOpen: true}) ;}}>
+                                        I agree to the terms of use and privacy policy.
+                                </div>
                 
 
-                            <TermsModal isOpen={values.modalIsOpen} 
-                                        onRequestClose={() => setValues({...values, modalIsOpen:false})}
+                            <TermsModal isOpen={formData.modalIsOpen} 
+                                        onRequestClose={() => formData({...formData, modalIsOpen: false})}
                                         onAgree={handleAgree}
                                         onDisagree={handleDisagree} 
                             />
 
-                            {errorMessage.isCheckedError && <div className='app__join-form-input-terms-error'>Please agree to the terms and conditions before proceeding.</div>}
+                            {errors.isChecked && <div className='app__join-form-input-terms-error'>{errors.isChecked}</div>}
                             
                         </div>
                         
 
                         <button className="app__join-form-button btn">
-                            {values.buttonText}
+                            {formData.buttonText}
                         </button>
 
                     </form>
