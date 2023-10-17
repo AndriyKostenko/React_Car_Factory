@@ -17,6 +17,8 @@ The page will reload when you make changes.
 
 
 
-![Screenshot from 2023-10-11 12-13-16](https://github.com/AndriyKostenko/React_Car_Factory/assets/91188777/84e9fd37-0997-40fb-9663-54cd87b98c8c)
 
-![Screenshot from 2023-10-11 12-13-41](https://github.com/AndriyKostenko/React_Car_Factory/assets/91188777/46bb1ddc-7a50-4180-a752-68422acf316f)
+![Screenshot from 2023-10-11 12-13-16](https://github.com/AndriyKostenko/React_Car_Factory/assets/91188777/a3e49587-559a-4ed1-bb5f-cdc0395f83bd)
+
+
+![Screenshot from 2023-10-11 12-13-41](https://github.com/AndriyKostenko/React_Car_Factory/assets/91188777/f481eeeb-f893-4f98-93cd-27d63ec11d29)
