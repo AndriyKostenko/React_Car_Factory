@@ -23,8 +23,6 @@ const AppJoin = () => {
         buttonText: "Send Message"
     });
 
-    const data = fetch('hhtp/localhost:3000')
-
     const [errors, setErrors] = useState({});
 
     const [focused, setFocused] = useState(false);
@@ -116,25 +114,6 @@ const AppJoin = () => {
 
     // ------- working with phone input input -----
 
-    const handlePhoneChange = (event) => {
-        let { value } = event.target;
-       
-        // Retain only numbers from the input
-        let cleaned = ('' + value).replace(/\D/g, '');
-    
-        // Limit to 10 characters
-        cleaned = cleaned.slice(0, 10);
-    
-        // Format the number
-        let match = cleaned.match(/^(\d{1,3})(\d{0,3})(\d{0,4})$/);
-    
-        if (match) {
-          cleaned = '(' + match[1] + ')' + match[2] + (match[3] ? '-' + match[3] : '');
-        }
-    
-        setFormData({...formData, [event.target.name]: cleaned});
-        
-    };
     
     const handleKeyDown = (event) => {
         const { key, keyCode } = event;

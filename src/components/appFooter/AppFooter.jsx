@@ -16,15 +16,15 @@ const AppFooter = () => {
             <div className="container">
                 <div className="app__footer-wrapper">
                     <div className="app__footer-socials">
-                        <a href="#">
+                        <a href="/">
                             <img src={linkedIn} alt="linkedIn_social" />
                         </a>
                         
-                        <a href="#">
+                        <a href="/">
                             <img src={facebook} alt="linkedIn_social" />
                         </a>
 
-                        <a href="#">
+                        <a href="/">
                             <img src={instagram} alt="instagram_social" />
                         </a> 
                         
