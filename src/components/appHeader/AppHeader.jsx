@@ -1,6 +1,6 @@
 import './appHeader.scss';
 
-import logo from '../../resources/icons/ttca_logo.png';
+//import logo from '../../resources/icons/ttca_logo.png';
 
 
 

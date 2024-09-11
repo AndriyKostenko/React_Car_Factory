@@ -23,6 +23,8 @@ const AppJoin = () => {
         buttonText: "Send Message"
     });
 
+    const data = fetch('hhtp/localhost:3000')
+
     const [errors, setErrors] = useState({});
 
     const [focused, setFocused] = useState(false);
