@@ -143,7 +143,7 @@ const AppJoin = () => {
 
             setFormData({buttonText:'Sending...'});
 
-            emailjs.sendForm('service_w2i0wjs', 'template_s65z8tw', form.current, '8sbKbHp2-XUMRl7lP')
+            emailjs.sendForm(process.env.SERVICE_ID, process.env.TEMPLATE_ID, form.current, process.env.USER_ID)
             .then((result) => {
                     setFormData({buttonText:'Sent!'});
                     setFocused(false);
